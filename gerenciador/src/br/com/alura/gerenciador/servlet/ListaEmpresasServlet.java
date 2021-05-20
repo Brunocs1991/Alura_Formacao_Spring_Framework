@@ -2,7 +2,6 @@ package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 
 import br.com.alura.gerenciador.model.Empresa;
