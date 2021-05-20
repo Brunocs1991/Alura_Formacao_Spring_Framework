@@ -1,10 +1,10 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import br.com.alura.gerenciador.model.Empresa;
 import br.com.alura.gerenciador.persistence.Banco;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,19 +19,18 @@ public class NovaEmpresaServlet extends HttpServlet {
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Cadastrando nova empresa");
-		
+		System.out.println("Cadastrando nova empresa");		
 		String nomeEmpresa = request.getParameter("nome");
 		
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
 		
-		Banco banco = new Banco();
-		
+		Banco banco = new Banco();		
 		banco.adiciona(empresa);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>Empresa " + nomeEmpresa + " cadastrada com sucesso !!</body></html>");		
+		//Chamar o JSP
+		RequestDispatcher rd =  request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		request.setAttribute("nomeEmpresa", empresa.getNome());
+		rd.forward(request, response);
 	}
-
 }
