@@ -16,14 +16,16 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ListaEmpresasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		Banco banco = new Banco();
-		List<Empresa> lista = banco.getEmpresa();
-		
-		request.setAttribute("empresas", lista);		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
-		rd.forward(request, response);
-	}
+	 protected void doGet(HttpServletRequest request, HttpServletResponse response)
+		        throws ServletException, IOException {
+
+		    Banco banco = new Banco();
+		    List<Empresa> lista = banco.getEmpresa();
+
+		    request.setAttribute("empresas", lista);
+
+		    RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
+		    rd.forward(request,response);
+	 }
 
 }
