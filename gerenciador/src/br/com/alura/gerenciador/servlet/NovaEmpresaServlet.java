@@ -22,13 +22,14 @@ public class NovaEmpresaServlet extends HttpServlet {
 	public NovaEmpresaServlet() {
 	}
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Cadastrando nova empresa");		
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("Cadastrando nova empresa");
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataAbertura = request.getParameter("data");
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
+
 		Date dataAbertura = null;
 		try {
 			dataAbertura = sdf.parse(paramDataAbertura);
@@ -36,16 +37,16 @@ public class NovaEmpresaServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			throw new ServletException(e);
 		}
-		
+
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
-		empresa.setDataAbertura(dataAbertura);	
-		
-		Banco banco = new Banco();		
+		empresa.setDataAbertura(dataAbertura);
+
+		Banco banco = new Banco();
 		banco.adiciona(empresa);
-		
-		//Chamar o JSP
-		RequestDispatcher rd =  request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+
+		// Chamar o JSP
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
 		request.setAttribute("nomeEmpresa", empresa.getNome());
 		rd.forward(request, response);
 	}
