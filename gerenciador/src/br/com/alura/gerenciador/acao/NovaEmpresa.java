@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -6,23 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.model.Empresa;
-import br.com.alura.gerenciador.persistence.Banco;
+import br.com.alura.gerenciador.modelo.Banco;
+import br.com.alura.gerenciador.modelo.Empresa;
 
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	public NovaEmpresaServlet() {
-	}
-
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+public class NovaEmpresa {
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		System.out.println("Cadastrando nova empresa");
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataAbertura = request.getParameter("data");
@@ -33,7 +24,6 @@ public class NovaEmpresaServlet extends HttpServlet {
 		try {
 			dataAbertura = sdf.parse(paramDataAbertura);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			throw new ServletException(e);
 		}
 
@@ -45,13 +35,6 @@ public class NovaEmpresaServlet extends HttpServlet {
 		banco.adiciona(empresa);
 		
 		request.setAttribute("nomeEmpresa", empresa.getNome());
-		response.sendRedirect("listaEmpresas");
-		
-		// Chamar o JSP
-		/*
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
-		request.setAttribute("nomeEmpresa", empresa.getNome());
-		rd.forward(request, response);
-		*/
+		response.sendRedirect("entrada?acao=ListaEmpresas");
 	}
 }
