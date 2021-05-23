@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.model.Empresa;
+import br.com.alura.gerenciador.modelo.Empresa;
 import br.com.alura.gerenciador.persistence.Banco;
 
 @WebServlet("/alteraEmpresa")

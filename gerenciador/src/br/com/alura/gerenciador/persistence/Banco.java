@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import br.com.alura.gerenciador.model.Empresa;
+import br.com.alura.gerenciador.modelo.Empresa;
 
 public class Banco {
 
