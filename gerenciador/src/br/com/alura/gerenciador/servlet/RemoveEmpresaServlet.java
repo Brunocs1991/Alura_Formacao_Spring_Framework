@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.persistence.Banco;
+import br.com.alura.gerenciador.modelo.Banco;
 
 @WebServlet("/removeEmpresa")
 public class RemoveEmpresaServlet extends HttpServlet {
