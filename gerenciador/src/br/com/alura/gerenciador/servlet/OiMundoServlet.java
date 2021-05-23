@@ -13,6 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 public class OiMundoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
+	
+
+	public OiMundoServlet() {
+		System.out.println("Criando o servlet oiMundo");
+	}
+
+
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -23,7 +31,7 @@ public class OiMundoServlet extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 
-		System.out.println("Servlet chamado");
+		System.out.println("Servlet chamado oiMundo");
 	}
 
 }
