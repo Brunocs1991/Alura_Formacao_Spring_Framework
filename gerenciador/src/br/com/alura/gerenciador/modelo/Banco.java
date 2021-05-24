@@ -19,7 +19,7 @@ public class Banco {
 		empresa2.setId(Banco.chaveSequencial++);
 		empresa2.setNome("Caelum");
 		lista.add(empresa2);
-		
+
 		Usuario u1 = new Usuario();
 		u1.setLogin("bruno");
 		u1.setSenha("123");
@@ -27,7 +27,7 @@ public class Banco {
 		Usuario u2 = new Usuario();
 		u2.setLogin("teste");
 		u2.setSenha("teste");
-		listaUsuarios.add(u2);		
+		listaUsuarios.add(u2);
 
 	}
 
@@ -42,9 +42,9 @@ public class Banco {
 
 	public void removeEmpresa(Integer id) {
 		Iterator<Empresa> it = lista.iterator();
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			Empresa emp = it.next();
-			if(emp.getId() ==id) {
+			if (emp.getId() == id) {
 				it.remove();
 			}
 		}
@@ -52,19 +52,19 @@ public class Banco {
 
 	public Empresa buscaEmpresaPelaId(Integer id) {
 		for (Empresa empresa : lista) {
-			if(empresa.getId() == id) {
+			if (empresa.getId() == id) {
 				return empresa;
 			}
 		}
 		return null;
 	}
-	
+
 	public Usuario existeUsuario(String login, String senha) {
-	    for(Usuario usuario : listaUsuarios) {
-	        if(usuario.ehIgual(login, senha)) { 
-	            return usuario;
-	        }
-	    }
-	    return null;
+		for (Usuario usuario : listaUsuarios) {
+			if (usuario.ehIgual(login, senha)) {
+				return usuario;
+			}
+		}
+		return null;
 	}
 }
