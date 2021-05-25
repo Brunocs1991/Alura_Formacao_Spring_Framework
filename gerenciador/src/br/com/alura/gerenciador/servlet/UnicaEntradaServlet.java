@@ -17,11 +17,13 @@ public class UnicaEntradaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String paramAcao = request.getParameter("acao");		
-		HttpSession sessao = request.getSession();
 		
+		String paramAcao = request.getParameter("acao");
+		
+		HttpSession sessao = request.getSession();		
 		boolean usuarioNaoLogado = sessao.getAttribute("usuarioLogado") == null;
 		boolean ehAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
+		
 		if(ehAcaoProtegida && usuarioNaoLogado) {
 			response.sendRedirect("entrada?acao=LoginForm");
 			return;
@@ -40,7 +42,8 @@ public class UnicaEntradaServlet extends HttpServlet {
 			throw new ServletException(e);			
 		}		
 		
-		String[] tipoEENdereco=nomeJsp.split(":");		
+		String[] tipoEENdereco=nomeJsp.split(":");
+		
 		if(tipoEENdereco[0].equals("forward")) {			
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEENdereco[1]);
 			rd.forward(request, response);				
