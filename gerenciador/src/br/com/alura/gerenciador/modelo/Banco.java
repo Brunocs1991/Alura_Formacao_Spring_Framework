@@ -36,7 +36,7 @@ public class Banco {
 		Banco.lista.add(empresa);
 	}
 
-	public List<Empresa> getEmpresa() {
+	public List<Empresa> getEmpresas() {
 		return Banco.lista;
 	}
 
