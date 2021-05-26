@@ -17,7 +17,6 @@ public class MostraEmpresa implements Acao{
 
 		Banco banco = new Banco();
 		Empresa empresa = banco.buscaEmpresaPelaId(id);
-		System.out.println(empresa.getNome());
 
 		request.setAttribute("empresa", empresa);
 		return "forward:formAlteraEmpresa.jsp";

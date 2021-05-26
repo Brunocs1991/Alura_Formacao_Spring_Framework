@@ -14,7 +14,7 @@ import br.com.alura.gerenciador.modelo.Empresa;
 
 public class NovaEmpresa implements Acao{
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		System.out.println("Cadastrando nova empresa");
+
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataAbertura = request.getParameter("data");
 
