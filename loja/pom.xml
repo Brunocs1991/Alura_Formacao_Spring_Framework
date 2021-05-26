@@ -5,7 +5,6 @@
 	<groupId>br.com.alura</groupId>
 	<artifactId>loja</artifactId>
 	<version>1.0.0</version>
-
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -14,13 +13,17 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
 			<version>1.4.17</version>
 		</dependency>
-
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>spring-repo</id>
+			<url>https://repo.spring.io/release</url>
+		</repository>
+	</repositories>
 </project>
