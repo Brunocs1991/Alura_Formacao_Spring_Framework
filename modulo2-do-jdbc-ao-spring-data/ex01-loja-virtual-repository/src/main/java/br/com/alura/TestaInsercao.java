@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TestaListagem {
+public class TestaInsercao {
 
 	public static void main(String[] args) throws SQLException {
 		
@@ -13,18 +13,14 @@ public class TestaListagem {
 		Connection connection = connectionFactory.recuperarConexao();
 		
 		Statement statement = connection.createStatement();
-		statement.execute("select id, nome, descricao from produto");
-		ResultSet resultSet = statement.getResultSet();
+		statement.execute("insert into produto (nome, descricao) values ('Mouse', 'Mouse sem fio')", Statement.RETURN_GENERATED_KEYS);
 		
+		ResultSet resultSet =  statement.getGeneratedKeys();
 		while(resultSet.next()) {
-			Integer id = resultSet.getInt("id");
-			String nome = resultSet.getString("nome");
-			String descricao = resultSet.getString("descricao");
-			
-			System.out.println("id: " + id + " | nome: " + nome +  " | descricao: " + descricao);
+			Integer id = resultSet.getInt(1);
+			System.out.println("O id gerado foi: " + id);
 		}
 		connection.close();
-
 	}
 
 }
