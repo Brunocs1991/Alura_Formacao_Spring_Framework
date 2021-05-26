@@ -9,8 +9,8 @@ public class TestaListagem {
 
 	public static void main(String[] args) throws SQLException {
 		
-		ConnectionFactory criaConexao = new ConnectionFactory();
-		Connection connection = criaConexao.recuperarConexao();
+		ConnectionFactory connectionFactory = new ConnectionFactory();
+		Connection connection = connectionFactory.recuperarConexao();
 		
 		Statement statement = connection.createStatement();
 		statement.execute("select id, nome, descricao from produto");
