@@ -5,6 +5,7 @@
 	<groupId>br.com.alura</groupId>
 	<artifactId>loja</artifactId>
 	<version>1.0.0</version>
+	
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -28,6 +29,7 @@
 	</repositories>
 	<!-- CONFIGURAR VERSÃO DO JAVA PARA 1.7 -->
 	<build>
+		<finalName>Loja</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
