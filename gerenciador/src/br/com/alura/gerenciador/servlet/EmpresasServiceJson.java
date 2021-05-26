@@ -15,8 +15,8 @@ import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
 
-@WebServlet("/empresas")
-public class EmpresasService extends HttpServlet {
+@WebServlet("/empresasJson")
+public class EmpresasServiceJson extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
