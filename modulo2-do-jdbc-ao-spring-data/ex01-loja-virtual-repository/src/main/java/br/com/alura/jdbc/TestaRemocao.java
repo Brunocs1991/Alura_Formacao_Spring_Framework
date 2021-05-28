@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import br.com.alura.factory.ConnectionFactory;
+
 public class TestaRemocao {
 	public static void main(String[] args) throws SQLException {
 
