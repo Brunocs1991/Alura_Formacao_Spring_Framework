@@ -1,5 +1,6 @@
 package br.com.alura.loja.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -44,6 +45,11 @@ public class ProdutoDao {
 	public List<Produto> buscarPorNomeCategoria(String nome) {
 		String jpql = "SELECT p FROM Produto p WHERE p.categoria.nome = :catNome";
 		return em.createQuery(jpql, Produto.class).setParameter("catNome", nome).getResultList();
+	}
+	
+	public BigDecimal buscarPrecoDoProdutoComNome(String nome) {
+		String jpql = "SELECT p.preco FROM Produto p WHERE p.nome = :nome";
+		return em.createQuery(jpql, BigDecimal.class).setParameter("nome", nome).getSingleResult();
 	}
 
 }
