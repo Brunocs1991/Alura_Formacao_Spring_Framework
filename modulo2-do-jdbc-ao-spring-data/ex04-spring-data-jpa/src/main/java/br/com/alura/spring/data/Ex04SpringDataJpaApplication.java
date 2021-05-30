@@ -35,10 +35,8 @@ public class Ex04SpringDataJpaApplication implements CommandLineRunner {
 			int action = scanner.nextInt();
 			if(action == 1) {
 				cargoService.inicial(scanner);
-			}if(action == 0) {
-				system = false;
 			}else {
-				System.out.println("Opção invalida");
+				system = false;
 			}
 		}
 		
