@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.com.alura.spring.data.service.CrudCargoService;
 import br.com.alura.spring.data.service.CrudFuncionarioService;
 import br.com.alura.spring.data.service.CrudUnidadeTrabalhoService;
+import br.com.alura.spring.data.service.RelatoriosService;
 
 @SpringBootApplication
 public class Ex04SpringDataJpaApplication implements CommandLineRunner {
@@ -16,16 +17,16 @@ public class Ex04SpringDataJpaApplication implements CommandLineRunner {
 	private Boolean system = true;
 
 	private final CrudCargoService cargoService;
-
 	private final CrudFuncionarioService funcionarioService;
-
 	private final CrudUnidadeTrabalhoService unidadeTrabalhoService;
+	private final RelatoriosService relatoriosService;
 
 	public Ex04SpringDataJpaApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService,
-			CrudUnidadeTrabalhoService unidadeTrabalhoService) {
+			CrudUnidadeTrabalhoService unidadeTrabalhoService, RelatoriosService relatoriosService) {
 		this.cargoService = cargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeTrabalhoService = unidadeTrabalhoService;
+		this.relatoriosService = relatoriosService;
 	}
 
 	public static void main(String[] args) {
@@ -43,6 +44,7 @@ public class Ex04SpringDataJpaApplication implements CommandLineRunner {
 			System.out.println("1 - Cargo");
 			System.out.println("2 - Unidade");
 			System.out.println("3 - Funcionario");
+			System.out.println("4 - Relatorios");
 			
 
 			Integer function = scanner.nextInt();
@@ -56,6 +58,9 @@ public class Ex04SpringDataJpaApplication implements CommandLineRunner {
 				break;
 			case 3:
 				funcionarioService.inicial(scanner);
+				break;
+			case 4:
+				relatoriosService.inicial(scanner);
 				break;
 			default:
 				System.out.println("Finalizando");
