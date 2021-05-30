@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,9 +21,9 @@ public class ItemPedido {
 	@Column(name = "preco_unitario")
 	private BigDecimal precoUnitario;
 	private int quantidade;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Pedido pedido;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Produto produto;
 
 	public ItemPedido() {
@@ -76,7 +77,7 @@ public class ItemPedido {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-	
+
 	public BigDecimal getValor() {
 		return this.precoUnitario.multiply(new BigDecimal(quantidade));
 	}
