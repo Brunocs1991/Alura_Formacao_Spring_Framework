@@ -7,15 +7,25 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.alura.spring.data.service.CrudCargoService;
+import br.com.alura.spring.data.service.CrudFuncionarioService;
+import br.com.alura.spring.data.service.CrudUnidadeTrabalhoService;
 
 @SpringBootApplication
 public class Ex04SpringDataJpaApplication implements CommandLineRunner {
 
-	private final CrudCargoService cargoService;
-	private Boolean system = true; 
+	private Boolean system = true;
 
-	public Ex04SpringDataJpaApplication(CrudCargoService cargoService) {
+	private final CrudCargoService cargoService;
+
+	private final CrudFuncionarioService funcionarioService;
+
+	private final CrudUnidadeTrabalhoService unidadeTrabalhoService;
+
+	public Ex04SpringDataJpaApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService,
+			CrudUnidadeTrabalhoService unidadeTrabalhoService) {
 		this.cargoService = cargoService;
+		this.funcionarioService = funcionarioService;
+		this.unidadeTrabalhoService = unidadeTrabalhoService;
 	}
 
 	public static void main(String[] args) {
@@ -24,22 +34,34 @@ public class Ex04SpringDataJpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+
 		Scanner scanner = new Scanner(System.in);
-		
-		while(system) {
-			System.out.println("Qual ação voce quer executar? ");
+
+		while (system) {
+			System.out.println("Qual função deseja executar?");
 			System.out.println("0 - Sair");
 			System.out.println("1 - Cargo");
+			System.out.println("2 - Unidade");
+			System.out.println("3 - Funcionario");
 			
-			int action = scanner.nextInt();
-			if(action == 1) {
+
+			Integer function = scanner.nextInt();
+
+			switch (function) {
+			case 1:
 				cargoService.inicial(scanner);
-			}else {
+				break;
+			case 2:
+				unidadeTrabalhoService.inicial(scanner);
+				break;
+			case 3:
+				funcionarioService.inicial(scanner);
+				break;
+			default:
+				System.out.println("Finalizando");
 				system = false;
+				break;
 			}
 		}
-		
 	}
-
 }
