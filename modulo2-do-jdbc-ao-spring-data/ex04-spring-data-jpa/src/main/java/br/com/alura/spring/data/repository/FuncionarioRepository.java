@@ -9,9 +9,14 @@ import org.springframework.data.repository.CrudRepository;
 import br.com.alura.spring.data.orm.Funcionario;
 
 public interface FuncionarioRepository extends CrudRepository<Funcionario, Integer> {
-	//derived query
+	// derived query
 	List<Funcionario> findByNome(String nome);
+
 	// jpql
 	@Query("SELECT f FROM Funcionario f WHERE f.nome = :nome AND f.salario >= :salario AND f.dataContratacao = :data")
 	List<Funcionario> findNomeSalarioMaiorDataContratacao(String nome, Double salario, LocalDate data);
+
+	// Native Query
+	@Query(value = "SELECT * FROM funcionarios f WHERE f.data_contratacao >= :data", nativeQuery = true)
+	List<Funcionario> findDataContratacaoMaior(LocalDate data);
 }
