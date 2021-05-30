@@ -35,7 +35,7 @@ public class CrudFuncionarioService {
 
 	public void inicial(Scanner scanner) {
 		while (system) {
-			System.out.println("Qual acao de cargo deseja executar");
+			System.out.println("Qual acao de funcionario deseja executar");
 			System.out.println("0 - Sair");
 			System.out.println("1 - Salvar");
 			System.out.println("2 - Atualizar");
