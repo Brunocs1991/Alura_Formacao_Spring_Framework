@@ -1,20 +1,23 @@
 <html>
 	<head>
 		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	</head>
 	<body>
-		<div th:each="pedido : ${pedidos}">
-			<div th:text="${pedido.nomeProduto}"></div>
-			<div>Valor: <span th:text="${pedido.valorNegociado}"></span></div>
-			<div>Data da entrega: <span th:text="${pedido.dataDaEntrega}"></span></div>
-			<div>produto</div>
-			<div> <input  th:value="${pedido.urlProduto}"></div>
-			<div>Descricao</div>
-			<div>
-				<textarea th:text="${pedido.descricao}">d</textarea>
-			</div>
-			<div>
-				<img th:src="${pedido.urlImagem}"/>
+		<div class="container">
+			<div th:each="pedido : ${pedidos}" class="card">
+				<div th:text="${pedido.nomeProduto}" class="card-header"></div>
+				<div>Valor: <span th:text="${pedido.valorNegociado}"></span></div>
+				<div>Data da entrega: <span th:text="${pedido.dataDaEntrega}"></span></div>
+				<div>produto</div>
+				<div> <input  th:value="${pedido.urlProduto}" class="form-control"></div>
+				<div>Descricao</div>
+				<div>
+					<textarea th:text="${pedido.descricao}" class="form-control">d</textarea>
+				</div>
+				<div>
+					<img th:src="${pedido.urlImagem}"/>
+				</div>
 			</div>
 		</div>
 	</body>
