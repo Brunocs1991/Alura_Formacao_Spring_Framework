@@ -1,13 +1,9 @@
 <html>
-	<head>
-		<meta charset="UTF-8"/>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	</head>
+	<head th:replace="~{base :: head}"></head>
 	<body>
+		<div th:replace="~{base :: logo}"></div>
 		<div class="container">
-			<div class="jumbotron mb-0">
-				<h1 class="display-4">Meus Pedidos</h1>
-			</div>
+			<div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
 			<nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
 				<div class="navbar-nav">
 					<a class="nav-item nav-link active" href="">Todos</a>
@@ -17,7 +13,7 @@
 				</div>
 				<a href="/pedido/formulario"><button class="btn btn-outline-secondary my-2 my-sm-0">Novo</button></a>
 			</nav>
-			<div th:each="pedido : ${pedidos}" class="card">
+			<div th:each="pedido : ${pedidos}" class="card mb-3">
 				<div th:text="${pedido.nomeProduto}" class="card-header"></div>
 				<div class ="card-body">
 					<div class="row">
