@@ -1,7 +1,10 @@
 package br.com.alura.mvc.mudi.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +26,11 @@ public class PedidoController {
 	}
 	
 	@PostMapping("novo")
-	public String novo(RequisicaoNovoPedido requisicao) {
+	public String novo(@Valid RequisicaoNovoPedido requisicao, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "pedido/formularios";
+		}
 		Pedido pedido = requisicao.toPedido();
 		pedidoRepository.save(pedido);
 		
