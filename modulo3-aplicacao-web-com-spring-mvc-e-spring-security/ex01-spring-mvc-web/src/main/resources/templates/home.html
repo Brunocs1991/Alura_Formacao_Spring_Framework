@@ -7,16 +7,26 @@
 		<div class="container">
 			<div th:each="pedido : ${pedidos}" class="card">
 				<div th:text="${pedido.nomeProduto}" class="card-header"></div>
-				<div>Valor: <span th:text="${pedido.valorNegociado}"></span></div>
-				<div>Data da entrega: <span th:text="${pedido.dataDaEntrega}"></span></div>
-				<div>produto</div>
-				<div> <input  th:value="${pedido.urlProduto}" class="form-control"></div>
-				<div>Descricao</div>
-				<div>
-					<textarea th:text="${pedido.descricao}" class="form-control">d</textarea>
-				</div>
-				<div>
-					<img th:src="${pedido.urlImagem}"/>
+				<div class ="card-body">
+					<div class="row">
+						<div class="col-12 col-sm-8 mb-3">
+							<div class="row">
+								<div class="col-md-5">Valor: <span th:text="${pedido.valorNegociado}"></span></div>
+								<div class="col-md-7">Data da entrega: <span th:text="${pedido.dataDaEntrega}"></span></div>
+							</div>
+							<div>Produto: </div>
+							<div> <input  th:value="${pedido.urlProduto}" class="form-control"></div>
+							<div>Descricao: </div>
+							<div>
+								<textarea th:text="${pedido.descricao}" class="form-control">d</textarea>
+							</div>					
+						</div>
+						<div class="col-12 col-sm-4">
+							<div>
+								<img th:src="${pedido.urlImagem}" class="img-thumbnail"/>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
