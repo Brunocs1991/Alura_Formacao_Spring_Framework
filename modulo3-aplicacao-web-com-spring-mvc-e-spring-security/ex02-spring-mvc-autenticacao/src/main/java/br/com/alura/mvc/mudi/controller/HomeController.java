@@ -25,17 +25,8 @@ public class HomeController {
 	@GetMapping
 	public String home(Model model, Principal principal) {
 
-		
-		List<Pedido> pedidos = pedidoRepository.findAll();
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE);
 		model.addAttribute("pedidos", pedidos);
-		return "home";
-	}
-
-	@GetMapping("/{status}")
-	public String porStatus(@PathVariable("status") String status, Model model) {
-		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
-		model.addAttribute("pedidos", pedidos);
-		model.addAttribute("status", status);
 		return "home";
 	}
 
