@@ -13,7 +13,7 @@ public class RequisicaoNovaOferta {
 	private Long pedidoId;
 	private String valor;
 	private String dataDaEntrega;
-	private String commentario;
+	private String comentario;
 
 	public Long getPedidoId() {
 		return pedidoId;
@@ -39,17 +39,18 @@ public class RequisicaoNovaOferta {
 		this.dataDaEntrega = dataDaEntrega;
 	}
 
-	public String getCommentario() {
-		return commentario;
+
+	public String getComentario() {
+		return comentario;
 	}
 
-	public void setCommentario(String commentario) {
-		this.commentario = commentario;
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 
 	public Oferta toOferta() {
 		Oferta oferta = new Oferta();
-		oferta.setCommentario(this.commentario);
+		oferta.setComentario(this.comentario);
 		oferta.setDataDaEntrega(LocalDate.parse(this.dataDaEntrega,formatter));
 		oferta.setValor(new BigDecimal(this.valor));
 		
