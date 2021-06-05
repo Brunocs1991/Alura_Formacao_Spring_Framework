@@ -9,17 +9,17 @@
 				<div class="card-header alert-dark">{{pedido.nomeProduto}}</div>
 				<div class ="card-body">
 					<div class="row">
-						<div class="col-12 col-sm-8 mb-3">
-							<div class="row">
-								<div class="col-md-5">Valor: <input/></div>
-								<div class="col-md-7">Data da entrega: <input/></div>
+						<div class="col-12 col-md-8 mb-3">
+							<div class="row mb-3">
+								<div class="col-md-5 mb-3">Valor: <input/></div>
+								<div class="col-md-7 ">Data entrega: <input/></div>
 							</div>
 							<div>Produto: </div>
-							<div>
+							<div class="mb-2">
 								<a  v-bind:href ="pedido.urlProduto">{{pedido.nomeProduto}}</a>
 							</div>
 							<div>Descricao: </div>
-							<div>
+							<div class="mb-2">
 								<textarea class="form-control">{{pedido.descricao}}</textarea>
 							</div>					
 						</div>
