@@ -18,7 +18,7 @@ public class Oferta {
 	private Long id;
 	private BigDecimal valor;
 	private LocalDate dataDaEntrega;
-	private String commentario;
+	private String comentario;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Pedido pedido;
@@ -47,14 +47,6 @@ public class Oferta {
 		this.dataDaEntrega = dataDaEntrega;
 	}
 
-	public String getCommentario() {
-		return commentario;
-	}
-
-	public void setCommentario(String commentario) {
-		this.commentario = commentario;
-	}
-
 	public Pedido getPedido() {
 		return pedido;
 	}
@@ -62,6 +54,16 @@ public class Oferta {
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+	
+	
 	
 	
 }

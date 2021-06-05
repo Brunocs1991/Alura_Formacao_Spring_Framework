@@ -43,6 +43,7 @@ public class Pedido {
 	private User user;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Oferta> ofertas;
 
 	public String getNomeProduto() {
@@ -117,4 +118,12 @@ public class Pedido {
 		this.ofertas = ofertas;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }
