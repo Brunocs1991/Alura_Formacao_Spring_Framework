@@ -1,5 +1,7 @@
 package br.com.alura.forum.controller.form;
 
+import java.util.Optional;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -37,11 +39,11 @@ public class AtualizacaoTopicoForm {
 
 	public Topico atualizar(Long id, TopicoRepository topicoRepository) {
 
-		Topico topico = topicoRepository.getOne(id);
-		topico.setTitulo(this.titulo);
-		topico.setMensagem(this.mensagem);
+		Optional<Topico> topico = topicoRepository.findById(id);
+		topico.get().setTitulo(this.titulo);
+		topico.get().setMensagem(this.mensagem);
 
-		return topico;
+		return topico.get();
 	}
 
 }
