@@ -1,9 +1,7 @@
 package br.com.alura.forum.config.swagger;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.h2.expression.Parameter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
