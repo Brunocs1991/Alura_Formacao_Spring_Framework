@@ -33,8 +33,6 @@ public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 		if (valido) {
 			autenticarCliente(token);
 		}
-
-		System.out.println(valido);
 		filterChain.doFilter(request, response);
 	}
 
