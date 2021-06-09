@@ -14,8 +14,6 @@
 	<version>1.0.0</version>
 	<name>ex01-spring-boot-api-rest-construa-uma-api</name>
 	<description>Spring Boot API REST: Construa uma API</description>
-	<packaging>war</packaging>
-	
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -42,11 +40,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -92,7 +85,7 @@
 	</dependencies>
 
 	<build>
-	<finalName>forum</finalName>
+		<finalName>forum</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
